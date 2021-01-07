@@ -2,6 +2,7 @@
   <div id="app">
     <Header />
     <MemeGenerator />
+    <p>{{ currentDate }}</p>
     <Footer />
   </div>
 </template>
@@ -13,11 +14,27 @@ import Footer from "./components/Footer.vue";
 
 export default {
   name: "app",
+  data: () => ({
+    currentDate: "Data de hoje...",
+  }),
   components: {
     MemeGenerator,
     Header,
     Footer,
   },
+  methods: {
+    dataAtual: function () {
+      let hoje = new Date();
+      this.currentDate = hoje.toLocaleDateString("pt-BR", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+      });
+    },
+  },
+  mounted() {
+    this.dataAtual()
+  }
 };
 </script>
 
@@ -27,5 +44,12 @@ body {
   background-color: rgb(25, 59, 22);
   font-family: "Goldman", cursive;
   margin-bottom: 100px;
+  color: yellow;
+}
+p {
+  text-align: center;
+  padding: 2rem;
+  margin: 0;
+  font-size: small;
 }
 </style>
