@@ -25,7 +25,7 @@
       <div class="form-group">
         <input
           type="text"
-          placeholder="Top text"
+          placeholder="Texto de cima"
           class="form-control"
           v-model="text.top"
         >
@@ -34,7 +34,7 @@
       <div class="form-group">
         <input
           type="text"
-          placeholder="Bottom text"
+          placeholder="Texto de baixo"
           class="form-control"
           v-model="text.bottom"
         >
@@ -47,12 +47,12 @@
             class="custom-control-input"
             :checked="text.uppercase"
           >
-          <label class="custom-control-label">UPPERCASE</label>
+          <label class="custom-control-label">MAIÚSCULA</label>
         </div>
       </div>
 
       <div class="form-group">
-        <label>TEXT COLOR</label>
+        <label>COR DO TEXTO</label>
         <span v-for="(color, index) in colors" :key="index">
           <span class="ml-2 border border-primary"
                 :style="colorStyle(color)"
@@ -69,11 +69,11 @@
         >
       </div>
 
-      <button class="btn btn-outline-primary" @click="resetInputs()">
-        Reset
+      <button class="btn btn-outline-warning" @click="resetInputs()">
+        Apagar
       </button>
 
-      <button class="btn btn-outline-danger ml-2" @click="download()">
+      <button class="btn btn-outline-info ml-2" @click="download()">
         Download
       </button>
     </div>
@@ -92,7 +92,7 @@ export default {
     return {
       title: 'Meme Generator',
       image: {
-        src: 'images/i-have-no-idea.png',
+        src: 'images/vaca.jpg',
         title: 'Dog',
       },
       text: {
@@ -101,7 +101,7 @@ export default {
         color: 'white',
         uppercase: true,
       },
-      colors: ['red', 'black', 'white'],
+      colors: ['red', 'blue', 'white', 'yellow', 'black'],
       showTitle: false,
     };
   },
@@ -192,7 +192,7 @@ export default {
   padding: 5px;
   position: absolute;
   text-transform: uppercase;
-  text-shadow: 3px 3px 3px #000;
+  text-shadow: 3px 3px 3px gray;
 }
 
 </style>
